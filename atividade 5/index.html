@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="https://cloudflare.com">
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #60b9d1;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            display: flex;
+            width: 850px;
+            height: 500px;
+            background-color: #9BD5D2;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1);
+        }
+
+        .welcome-panel {
+            flex: 1.1;
+            background: linear-gradient(135deg, #6a1b9a, #d93f3f);
+            color: #9BD5D2;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .welcome-panel::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .welcome-panel h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .welcome-panel p {
+            font-size: 1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .form-panel {
+            flex: 0.9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 50px;
+            background-color: #ffffff;
+        }
+
+        .form-panel h2 {
+            font-size: 2.2rem;
+            color: #333333;
+            margin-bottom: 35px;
+            font-weight: 700;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888888;
+            font-size: 1rem;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            background-color: #fafafa;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #AC1C1A;
+            background-color: #9BD5D2;
+            box-shadow: 0 0 5px rgba(142, 36, 170, 0.2);
+        }
+
+        .form-options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            font-size: 0.85rem;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            color: #666666;
+            cursor: pointer;
+        }
+
+        .remember-me input {
+            margin-right: 8px;
+            accent-color: #8e24aa;
+        }
+
+        .forgot-password {
+            color: #E2212E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .forgot-password:hover {
+            text-decoration: underline;
+        }
+
+        
+        .btn-submit {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(to right, #AC1C1A, #E2212E);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(142, 36, 170, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+        }
+
+        .btn-submit:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .create-account {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #E2212E;
+        }
+
+        .create-account a {
+            color: #E2212E;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .create-account a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="welcome-panel">
+           <img src="https://preview.redd.it/with-gunns-visual-aesthetic-and-heart-he-is-the-perfect-man-v0-m6s2lj8yh56a1.jpg?width=487&format=pjpg&auto=webp&s=e7de15e833078e9dd60366f4772f6a6ba803d4b3" alt="simbolo do superman">
+            <p>You can sign in to access with your existing account.</p>
+        </div>
+
+        <div class="form-panel">
+            <h2>Sign In</h2>
+            
+            <form action="#">
+                <div class="input-group">
+                    <i class="fa-regular fa-user"></i>
+                    <input type="text" placeholder="Username or email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" required>
+                </div>
+
+                <div class="form-options">
+                    <label class="remember-me">
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn-submit">Sign in</button>
+
+                <div class="create-account">
+                    New here? <a href="#">Create an Account</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
