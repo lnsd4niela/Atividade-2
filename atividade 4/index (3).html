@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tela de Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #008bd2, #006ec4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+
+        .onda {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .onda1 {
+            width: 600px;
+            height: 600px;
+            top: -350px;
+            left: -150px;
+        }
+
+        .onda2 {
+            width: 700px;
+            height: 700px;
+            bottom: -450px;
+            right: -150px;
+        }
+
+        
+        .container {
+            width: 950px;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+        }
+
+
+        .card {
+            width: 310px;
+            min-height: 470px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 8px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .card::after {
+            content: "";
+            position: absolute;
+            width: 450px;
+            height: 170px;
+            background: #008bd2;
+            bottom: -110px;
+            left: -70px;
+            border-radius: 50%;
+        }
+
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            border: 3px solid white;
+            background: #008bd2;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        .logo-small {
+            width: 70px;
+            height: 70px;
+        }
+
+
+        h1 {
+            text-align: center;
+            color: #008bd2;
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .subtitulo {
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+            margin-bottom: 25px;
+        }
+
+
+        .campo {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .campo input {
+            width: 100%;
+            height: 45px;
+
+            border: 1px solid #bbb;
+            border-radius: 25px;
+
+            padding: 0 48px 0 18px;
+
+            outline: none;
+            font-size: 13px;
+        }
+
+        .campo input:focus {
+            border-color: #008bd2;
+        }
+
+        .icone {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+
+            width: 35px;
+            height: 35px;
+
+            background: #008bd2;
+            border-radius: 50%;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 16px;
+        }
+
+
+        .opcoes {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            font-size: 11px;
+            margin: 5px 5px 20px;
+        }
+
+        .lembrar {
+            color: #777;
+        }
+
+        .esqueci {
+            color: #222;
+            text-decoration: none;
+        }
+
+
+        .btn {
+            width: 100%;
+            height: 43px;
+
+            border: none;
+            border-radius: 25px;
+
+            background: #008bd2;
+            color: white;
+
+            font-size: 14px;
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #006fa9;
+            transform: translateY(-2px);
+        }
+
+
+        .social-title {
+            text-align: center;
+            margin: 25px 0 12px;
+
+            color: #555;
+            font-size: 12px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .social a {
+            width: 30px;
+            height: 30px;
+
+            border: 1px solid #aaa;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-decoration: none;
+            color: #555;
+
+            font-size: 13px;
+        }
+
+        .social a:hover {
+            background: #008bd2;
+            color: white;
+            border-color: #008bd2;
+        }
+
+
+        .rodape {
+            position: absolute;
+            z-index: 2;
+
+            bottom: 20px;
+            left: 0;
+
+            width: 100%;
+
+            text-align: center;
+
+            color: white;
+            font-size: 11px;
+        }
+
+        .rodape a {
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+
+        .central {
+            width: 330px;
+            min-height: 520px;
+
+            background: rgba(0, 120, 210, 0.75);
+
+            padding: 50px 35px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            color: white;
+
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+            z-index: 2;
+        }
+
+        .central .logo {
+            background: transparent;
+            margin-bottom: 15px;
+        }
+
+        .central h2 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .central p {
+            font-size: 11px;
+            opacity: 0.8;
+            margin-bottom: 45px;
+        }
+
+        .central-btn {
+            width: 190px;
+            height: 40px;
+
+            margin-bottom: 15px;
+
+            border: none;
+            border-radius: 25px;
+
+            background: white;
+            color: #333;
+
+            cursor: pointer;
+
+            font-size: 13px;
+        }
+
+        .central-btn:hover {
+            background: #eeeeee;
+        }
+
+
+        .touch-area {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .digital {
+            width: 60px;
+            height: 60px;
+
+            margin: 10px auto;
+
+            border: 3px solid white;
+            border-radius: 50%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 32px;
+        }
+
+        .touch-area span {
+            font-size: 11px;
+            opacity: 0.9;
+        }
+
+        .termos {
+            font-size: 10px;
+            color: #777;
+            margin: 8px 5px 18px;
+        }
+
+
+        @media (max-width: 900px) {
+
+            body {
+                overflow-y: auto;
+                padding: 30px 15px;
+            }
+
+            .container {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .central {
+                order: -1;
+                width: 100%;
+                max-width: 400px;
+                min-height: 350px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 400px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .central {
+                min-height: 320px;
+                padding: 35px 20px;
+            }
+
+            .card {
+                padding: 30px 20px;
+            }
+
+            .central h2 {
+                font-size: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="onda onda1"></div>
+    <div class="onda onda2"></div>
+
+
+    <main class="container">
+
+
+        <section class="card">
+
+            <div class="logo logo-small">
+                ✓
+            </div>
+
+            <h1>LOGIN</h1>
+
+            <p class="subtitulo">
+                Entre na sua conta
+            </p>
+
+
+            <form>
+
+                <div class="campo">
+                    <input
+                        type="text"
+                        placeholder="Nome de usuário"
+                        required
+                    >
+
+                    <span class="icone">👤</span>
+                </div>
+
+
+                <div class="campo">
+
+                    <input
+                        type="password"
+                        placeholder="Senha"
+                        required
+                    >
+
+                    <span class="icone">🔑</span>
+
+                </div>
+
+
+
+                <div class="opcoes">
+
+                    <label class="lembrar">
+                        <input type="checkbox">
+                        Lembrar senha
+                    </label>
+
+                    <a href="#" class="esqueci">
+                        Esqueceu a senha?
+                    </a>
+
+                </div>
+
+
+
+                <button class="btn" type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+
+
+            <p class="social-title">
+                Entrar com redes sociais
+            </p>
+
+            <div class="social">
+
+                <a href="#">f</a>
+
+                <a href="#">𝕏</a>
+
+                <a href="#">in</a>
+
+            </div>
+
+
+
+            <div class="rodape">
+
+                Não possui uma conta?
+
+                <a href="#">
+                    Cadastre-se
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="central">
+
+            <div class="logo">
+                ✓
+            </div>
+
+            <h2>Passo Feliz Calçados</h2>
+
+            <p>
+                a cada passo uma alegria!
+            </p>
+
+
+            <button
+                class="central-btn"
+                onclick="mostrarMensagem('Login')">
+
+                Sign in
+
+            </button>
+
+
+            <button
+                class="central-btn"
+                onclick="mostrarMensagem('Cadastro')">
+
+                Sign up
+
+            </button>
+
+
+
+            <div class="touch-area">
+
+                <span>
+                    Agora: login rápido usando Touch ID
+                </span>
+
+                <div class="digital">
+                    ◎
+                </div>
+
+                <span>
+                    Usar Touch ID
+                </span>
+
+            </div>
+
+        </section>
+
+
+
+        <section class="card">
+
+            <div class="logo logo-small">
+                ✓
+            </div>
+
+            <h1>CADASTRO</h1>
+
+            <p class="subtitulo">
+                Crie sua nova conta
+            </p>
+
+
+            <form>
+
+                
+
+                <div class="campo">
+
+                    <input
+                        type="text"
+                        placeholder="Nome de usuário"
+                        required
+                    >
+
+                    <span class="icone">
+                        👤
+                    </span>
+
+                </div>
+
+
+
+                <div class="campo">
+
+                    <input
+                        type="email"
+                        placeholder="E-mail"
+                        required
+                    >
+
+                    <span class="icone">
+                        ✉
+                    </span>
+
+                </div>
+
+
+
+                <div class="campo">
+
+                    <input
+                        type="password"
+                        placeholder="Senha"
+                        required
+                    >
+
+                    <span class="icone">
+                        🔑
+                    </span>
+
+                </div>
+
+
+
+                <div class="termos">
+
+                    <label>
+
+                        <input type="checkbox" required>
+
+                        Aceito os Termos e Condições
+
+                    </label>
+
+                </div>
+
+
+
+                <button class="btn" type="submit">
+
+                    Criar conta
+
+                </button>
+
+            </form>
+
+
+
+            <div class="rodape">
+
+                Já possui uma conta?
+
+                <a href="#">
+                    Entrar
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        function mostrarMensagem(tipo) {
+
+            if (tipo === "Login") {
+
+                alert("Abrindo tela de login...");
+
+            } else {
+
+                alert("Abrindo tela de cadastro...");
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
