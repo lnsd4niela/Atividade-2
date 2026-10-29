@@ -39,12 +39,14 @@
     }
 
     function.mostrarContatos(){
+      lista.innerHTML = "";
+      contatos.forEach(function(contato){
       let item = document.createElement("li");
       item.textContent = contato.nome + "-"
         + contato.telefone;
-
       lista.appendChild("item");
-    }
+    });
+  }
   </script>
 </body>
 
